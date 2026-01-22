@@ -1,0 +1,11 @@
+﻿services:
+  gpt2giga:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gpt2giga
+    env_file:
+      - .env
+    ports:
+      - "${GPT2GIGA_PORT:-8000}:${GPT2GIGA_PORT:-8000}"
+    restart: unless-stopped
